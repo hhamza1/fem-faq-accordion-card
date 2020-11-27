@@ -1,7 +1,12 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
     background-repeat: no-repeat;
-    height: 100vh;
     color: hsl(238, 29%, 16%);
     font-size: 12px;
     font-family: "Kumbh Sans", sans-serif;
@@ -9,14 +14,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 30px 25px 0 25px;
-    box-sizing: border-box;
+    padding: 150px 25px 10px 25px;
+    min-height: 100vh;
 }
 
 h2 {
     font-size: 32px;
     text-align: center;
+    margin:0;
 }
 
 a, a:visited {
@@ -53,4 +58,27 @@ a, a:visited {
 
 .faq-answers {
     padding: 9px 0;
+}
+
+.accordion-illustration {
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.accordion-illustration::before {
+    position: absolute;
+    content: url('../images/bg-pattern-mobile.svg');
+    bottom: -25px;
+    left: 18px;
+    width: 100px;
+}
+
+.accordion-illustration img {
+    position: absolute;
+    bottom: -5px;
+    width: 90%;
+}
+
+.accordion-faq{
+    padding-top: 50px;   
 }
