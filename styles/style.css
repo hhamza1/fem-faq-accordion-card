@@ -49,7 +49,7 @@ a, a:visited {
     color: hsl(240, 6%, 50%);
     border-bottom: 1px solid hsl(240, 6%, 50%);
     position: relative;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .faq-questions::before {
@@ -57,13 +57,13 @@ a, a:visited {
     position: absolute;
     right: 0;
     cursor: pointer;
-    transition: all .1s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
 .faq-answers {
     padding: 20px 0;
     display: none;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .accordion-illustration {
@@ -73,23 +73,18 @@ a, a:visited {
 
 .accordion-illustration::before {
     position: absolute;
-    background-image: url('../images/bg-pattern-mobile.svg');
-    background-size : 80%;
-    background-position: 15px ;
+    background-image: url(../images/bg-pattern-mobile.svg);
+    background-size: 90%;
+    background-position: 15px;
     background-repeat: no-repeat;
     height: 104px;
-    width: 240px;
+    width: 76%;
     content: '';
-    bottom: -30px;
-    left: 25px;
+    bottom: -20px;
+    left: 31px;
 }
 
-.accordion-illustration img {
-    position: absolute;
-    bottom: -5px;
-    left: 15px;
-    width: 78%;
-}
+
 
 .accordion-faq{
     padding-top: 50px;   
@@ -121,11 +116,41 @@ a, a:visited {
     padding-top: 10px;
 }
 
-/* @media (min-width: 1024px){
+/*-------------- Desktop View-----------------*/
+
+@media only screen and (min-width: 1024px){
+    body {
+        padding: 50px 50px 10px 50px;
+    }
+
+
     .accordion-container {
         display: flex;
-        flex-direction : row;
-        justify-content: center;
-        align-content: center;
+        flex-direction: column;
+        padding: 45px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
     }
-} */
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+    }
+
+    .accordion-illustration::before {
+        content: '';
+        background-image: url('../images/bg-pattern-desktop.svg');
+        background-position: 0 0;
+        background-size: 90%;
+        width: auto;
+        height: 100%;
+        bottom: 180px;
+        left: -100px;
+        position: absolute;
+        opacity: .5;
+    }
+}
