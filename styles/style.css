@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+p {
+    margin: 0;
+}
+
 body {
     background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
     background-repeat: no-repeat;
@@ -14,7 +18,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 25px 10px 25px;
+    padding: 100px 25px 0 25px;
     min-height: 100vh;
 }
 
@@ -35,7 +39,6 @@ a, a:visited {
     border-radius: 10px;
     border: 0;
     justify-content: center;
-    padding: 50px 25px;
     width: 100%;
 }
 
@@ -50,6 +53,7 @@ a, a:visited {
     border-bottom: 1px solid hsl(240, 6%, 50%);
     position: relative;
     transition: all .3s ease-in-out;
+    cursor: pointer;
 }
 
 .faq-questions::before {
@@ -71,23 +75,11 @@ a, a:visited {
     padding-bottom: 25px;
 }
 
-.accordion-illustration::before {
-    position: absolute;
-    background-image: url(../images/bg-pattern-mobile.svg);
-    background-size: 90%;
-    background-position: 15px;
-    background-repeat: no-repeat;
-    height: 104px;
-    width: 76%;
-    content: '';
-    bottom: -20px;
-    left: 31px;
-}
-
 
 
 .accordion-faq{
-    padding-top: 50px;   
+    padding-top: 50px;
+    white-space: normal;   
 }
 
 
@@ -126,31 +118,99 @@ a, a:visited {
 
     .accordion-container {
         display: flex;
-        flex-direction: column;
-        padding: 45px;
-        display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
+        flex-wrap: nowrap;
+        max-width: 920px;
+        min-height: 512px;
     }
 
-    .column {
+    .column-1, .column-2 {
         display: flex;
         flex-direction: column;
         flex-basis: 100%;
         flex: 1;
     }
 
-    .accordion-illustration::before {
-        content: '';
-        background-image: url('../images/bg-pattern-desktop.svg');
-        background-position: 0 0;
-        background-size: 90%;
-        width: auto;
+    .column-1 {
+        position: relative;
+    }
+
+    .column-2 {
+        padding: 50px 25px 50px 0;
+    }
+
+    .accordion-illustration {
+        width: 100%;
         height: 100%;
-        bottom: 180px;
-        left: -100px;
+        overflow: hidden;
+    }
+
+    .accordion-illustration img {
         position: absolute;
-        opacity: .5;
+        top: 30px;
+        left: -75px;
+        z-index: 2;
+    }
+
+    .accordion-illustration::before {
+        content: "";
+        background-image: url(../images/bg-pattern-desktop.svg);
+        background-size: 95%;
+        background-repeat: no-repeat;
+        transform: translate(-54%, -30%);
+        position: absolute;
+        width: 966px;
+        height: 945px;
+        z-index: 1;
+    }
+
+    .column-1::before {
+        content: "";
+        background-image: url(../images/illustration-box-desktop.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 33%;
+        left: -20%;
+        width: 191px;
+        height: 184px;
+        z-index: 3;
+    }
+
+    .accordion-faq{
+        padding-top: 0;
+    }
+}
+
+
+@media only screen and (max-width: 1023px) {
+
+    .accordion-container {
+        padding: 50px 25px;
+    }
+
+
+    .accordion-illustration img {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 150px;
+        right: 0;
+        max-width: 80%;
+    }
+
+
+    .accordion-illustration::before {
+        position: absolute;
+        background-image: url(../images/bg-pattern-mobile.svg);
+        background-size: 80%;
+        background-position: 15px;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 120px;
+        content: '';
+        top: -53px;
+        left: 17px;
     }
 }
